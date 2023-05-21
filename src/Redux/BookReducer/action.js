@@ -66,7 +66,11 @@ export const postBook = (payload) => (dispatch) => {
   dispatch(postBookReqAct());
   return axios
     .post(`http://localhost:4800/books`, payload)
-    .then(() => dispatch(postBookReqActSucc()))
+    .then(() =>{
+
+     dispatch(postBookReqActSucc())
+    }
+     )
     .catch((err) => dispatch(postBookReq()));
 };
 

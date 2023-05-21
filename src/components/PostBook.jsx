@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getBooks, postBook } from '../Redux/BookReducer/action'
 import { Button, Input } from '@chakra-ui/react'
-
+import { useSelector } from 'react-redux'
+import Loaders from './Loader'
 export default function PostBook() {
     const [titel,settitle] = useState("")
     const [auther,setauther] = useState("")
@@ -22,9 +23,10 @@ export default function PostBook() {
 
     console.log(payload)
     dispatch(postBook(payload))
-    
     }
-
+    const store = useSelector((store)=>store)
+    const isLoading = store.isLoading
+    const isError = store.isError
    
   
   return (
@@ -39,8 +41,12 @@ export default function PostBook() {
             <Input value={ibsn} onChange={(e)=>setibsn(e.target.value)} type='text' placeholder='IBSN' />
             <Input value={image} onChange={(e)=>setimage(e.target.value)} type='text' placeholder='Image' />
             
-            <Button mt={"4px"} type='submit'>submit</Button>
+            <Button  mt={"4px"} type='submit'>submit</Button>
+          
         </form>
+     
+   {isLoading?<Loaders/>:<h3>post a new book</h3>}
+        
     </div>
   )
 }
