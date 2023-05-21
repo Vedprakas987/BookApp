@@ -88,7 +88,7 @@ export const deleteBook = (id) => (dispatch) => {
   console.log(dispatch,id);
   dispatch(deleteBookReqAct());
   return axios
-    .delete(`http://localhost:4800/books/${id}`)
+    .delete(`https://calm-teal-cod-kit.cyclic.app/books/${id}`)
     .then(() =>{
     console.log(`book is deleted with ${id}`)
     dispatch(deleteBookReqActSucc(Math.random()))
@@ -102,7 +102,7 @@ export const updateBook = (payload,id)=> (dispatch) => {
   dispatch(updateBookReqAct());
   console.log("id:",id,"payload",payload)
   return axios
-    .patch(`http://localhost:4800/books/${id}`,payload)
+    .patch(`https://calm-teal-cod-kit.cyclic.app/books/${id}`,payload)
     .then(() => dispatch(updateBookReqActSucc(Math.random())))
     .catch((err) => dispatch(updateBookReqActFail()));
 };
