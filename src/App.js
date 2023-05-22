@@ -8,7 +8,7 @@ function App() {
   console.log(store)
   return (
     <div className="App">
-     <Flex p={"4px"} gap={"20px"} bg={"#CCCCFF"}>
+     <Flex  boxShadow={"rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"} p={"4px"} gap={"20px"} bg={"#fff"}>
       <img src='https://img.icons8.com/?size=1x&id=16368&format=png' alt ="prof"/>
         <Link to="/Add"><Button bg={"none"}>Add New Book</Button></Link>
       

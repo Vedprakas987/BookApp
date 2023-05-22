@@ -102,11 +102,21 @@ export const deleteBook = (id) => (dispatch) => {
 };
 
 export const updateBook = (payload,id)=> (dispatch) => {
-  console.log(dispatch,id,payload);
+  let obj = {}
+  for (let key in payload){
+    if(payload[key].length>1){
+      if(obj[key]==undefined){
+        obj[key]=payload[key]
+      }
+    }
+  }
+
+  console.log(obj)
+  console.log(dispatch,id,obj);
   dispatch(updateBookReqAct());
-  console.log("id:",id,"payload",payload)
+  console.log("id:",id,"payload",obj)
   return axios
-    .patch(`https://calm-teal-cod-kit.cyclic.app/books/${id}`,payload)
+    .patch(`https://calm-teal-cod-kit.cyclic.app/books/${id}`,obj)
     .then(() => dispatch(updateBookReqActSucc(Math.random())))
     .catch((err) => dispatch(updateBookReqActFail()));
 };

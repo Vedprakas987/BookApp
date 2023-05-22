@@ -45,22 +45,22 @@ export default function Books() {
         <br/>
         <h4  style={{color:"#454545"}}>Welcome to Book App</h4>
         <br/>
-        <SimpleGrid w={"97%"} m={"auto"} gap={"2%"} columns={[1,2,3,4]}>
+        <SimpleGrid w={"97%"} m={"auto"} gap={"1.5%"} columns={[1,2,3,4]}>
 {
     isLoading?<Loaders/>:Books.map((el)=>{
         console.log(el._id)
         return(
-        <Box fontStyle={"oblique"}  borderRadius={"15px"} bg={"#CCCCFF"} fontSize={"15px"} p={"20px"} textAlign={"start"}  boxShadow={"rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"}>
+        <Box fontStyle={"oblique"}  borderRadius={"15px"} bg={"#white"} fontSize={"15px"} p={"20px"} textAlign={"start"}  boxShadow={"rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"}>
                 <Bookcard key={el._id} {...el}/>
                 <br/>
-                <Flex mr={"5px"} gap={"5px"}>
+                <Flex  mr={"10px"} gap={"5px"}>
 
 <Button onClick={()=>{
     dispatch(deleteBook(el._id))
     count++;
 }
 }  >
-    <DeleteIcon/>
+    <DeleteIcon _hover={{color:"red"}} color={"#1F618D"}/>
 </Button>
 
 <Button onClick={()=>{
@@ -68,7 +68,7 @@ export default function Books() {
     openThemodal(el._id)
 }
 }>
-    <EditIcon/>
+    <EditIcon _hover={{color:"red"}} color={"#1F618D"}/>
 </Button>
 </Flex>
 
