@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { getBooks, postBook, updateBook } from '../Redux/BookReducer/action'
+import {  updateBook } from '../Redux/BookReducer/action'
 import { Button, Input } from '@chakra-ui/react'
 
 export default function EditForm({id}) {

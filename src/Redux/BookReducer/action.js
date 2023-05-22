@@ -65,7 +65,7 @@ export const postBook = (payload) => (dispatch) => {
   console.log(dispatch);
   dispatch(postBookReqAct());
   return axios
-    .post(`http://localhost:4800/books`, payload)
+    .post(`https://calm-teal-cod-kit.cyclic.app/books`, payload)
     .then(() =>{
 
      dispatch(postBookReqActSucc())
@@ -77,7 +77,7 @@ export const postBook = (payload) => (dispatch) => {
 export const getBooks = (dispatch) => {
   dispatch(GetBookReqAct());
   return axios
-    .get(`http://localhost:4800/books`)
+    .get(`https://calm-teal-cod-kit.cyclic.app/books`)
     .then((res) => {
         console.log(res.data)
         dispatch(GetBookReqActSucc(res.data))

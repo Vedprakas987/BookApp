@@ -1,7 +1,5 @@
 import './App.css';
 import { useSelector } from 'react-redux';
-import PostBook from './components/PostBook';
-import Books from './components/Books';
 import AllRoutes from './components/AllRoutes';
 import { Button, Flex } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
@@ -10,14 +8,11 @@ function App() {
   console.log(store)
   return (
     <div className="App">
-     <Flex p={"4px"} gap={"20px"} bg={"teal.100 "}>
+     <Flex p={"4px"} gap={"20px"} bg={"#CCCCFF"}>
       <img src='https://img.icons8.com/?size=1x&id=16368&format=png' alt ="prof"/>
-      <Button>
-        <Link to="/Add">Add New Book</Link>
-      </Button>
-      <Button>
-      <Link to = "/">Home</Link>
-      </Button>
+        <Link to="/Add"><Button bg={"none"}>Add New Book</Button></Link>
+      
+      <Link to = "/"><Button bg={"none"}>Home</Button></Link>
      </Flex>
      <AllRoutes/>
     </div>
